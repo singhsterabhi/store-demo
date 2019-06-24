@@ -3,8 +3,28 @@
   color: white;
   height: 100vh;
   width: 500px;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 200;
+  transition: transform 0.3s ease-out;
+}
+
+.Open {
+  transform: translateX(0);
+}
+
+.Close {
+  transform: translateX(100%);
+}
+
+.ToggleCart {
+  background: black;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  border: 0;
+  margin: 10px 0 0 10px;
 }

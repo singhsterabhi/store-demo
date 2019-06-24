@@ -1,0 +1,9 @@
+export const STARTLOADING = "STARTLOADING";
+export const FINISHLOADING = "FINISHLOADING";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+
+export const CART_OPEN = "CART_OPEN";
+export const CART_CLOSE = "CART_CLOSE";
+
+export const ADDTOCART = "ADDTOCART";
+export const REMOVEFROMCART = "REMOVEFROMCART";

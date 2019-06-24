@@ -1,30 +1,22 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import classes from "./Products.module.css";
-import axios from "../../axios";
+
 import Product from "./Product/Product";
 import Spinner from "../UI/Spinner/Spinner";
+import * as actions from "../../store/actions/index";
 
 class Products extends Component {
-  state = {
-    products: null,
-    loading: true
-  };
   componentDidMount() {
-    axios
-      .get("/products.json")
-      .then(res => {
-        console.log(res.data);
-        this.setState({ products: res.data, loading: false });
-      })
-      .catch(e => console.log(e));
+    this.props.getProducts();
   }
   render() {
-    let spinner = this.state.loading ? <Spinner /> : null;
+    let spinner = this.props.loading ? <Spinner /> : null;
 
     let prod = null;
-    if (this.state.products) {
-      prod = Object.keys(this.state.products).map(k => {
-        return <Product key={k} {...this.state.products[k]} />;
+    if (this.props.products) {
+      prod = Object.keys(this.props.products).map(k => {
+        return <Product key={k} {...this.props.products[k]} />;
       });
     }
 
@@ -37,4 +29,20 @@ class Products extends Component {
   }
 }
 
-export default Products;
+const MapStateToProps = state => {
+  return {
+    products: state.products,
+    loading: state.loading
+  };
+};
+
+const MapDispatchToProps = dispatch => {
+  return {
+    getProducts: () => dispatch(actions.loadProducts())
+  };
+};
+
+export default connect(
+  MapStateToProps,
+  MapDispatchToProps
+)(Products);
