@@ -4,7 +4,7 @@ import classes from "./Product.module.css";
 const product = props => {
   //   console.log(props);
   return (
-    <div className={classes.Product}>
+    <div className={classes.Product} onClick={props.click}>
       <div className={classes.Title}>
         <img
           src={require(`../../../assets/images/${props.sku}_1.jpg`)}

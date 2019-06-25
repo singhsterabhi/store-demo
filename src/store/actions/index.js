@@ -46,8 +46,16 @@ export const loadProducts = () => {
   };
 };
 
-export const addToCart=product=>{
-  return{
-    
-  }
-}
+export const addToCart = product => {
+  return {
+    type: actionTypes.ADDTOCART,
+    product
+  };
+};
+
+export const removeFromCart = product => {
+  return {
+    type: actionTypes.REMOVEFROMCART,
+    product
+  };
+};

@@ -16,7 +16,13 @@ class Products extends Component {
     let prod = null;
     if (this.props.products) {
       prod = Object.keys(this.props.products).map(k => {
-        return <Product key={k} {...this.props.products[k]} />;
+        return (
+          <Product
+            key={k}
+            click={() => this.props.addToCart(k)}
+            {...this.props.products[k]}
+          />
+        );
       });
     }
 
@@ -38,7 +44,8 @@ const MapStateToProps = state => {
 
 const MapDispatchToProps = dispatch => {
   return {
-    getProducts: () => dispatch(actions.loadProducts())
+    getProducts: () => dispatch(actions.loadProducts()),
+    addToCart: product => dispatch(actions.addToCart(product))
   };
 };
 

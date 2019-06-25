@@ -34,6 +34,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: action.products
       };
+    case actionTypes.ADDTOCART:
+      const cart = { ...state.cart };
+      if (cart.hasOwnProperty(action.product))
+        cart[action.product] = cart[action.product] + 1;
+      else cart[action.product] = 1;
+      return {
+        ...state,
+        cart
+      };
     default:
       return state;
   }

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import classes from "./Cart.module.css";
+import {} from "react-redux";
+import { connect } from "net";
 
 class Cart extends Component {
-  state = {};
-
   render() {
     const classesCart = [classes.Cart];
     if (this.props.cartShow) {
@@ -19,9 +19,26 @@ class Cart extends Component {
           X
         </button>
         <h1>Cart</h1>
+        <div>
+          {!(this.props.cart === {}) ? (
+            Object.keys(this.props.cart).map(k => <p>{k}</p>)
+          ) : (
+            <p>add some products</p>
+          )}
+        </div>
       </div>
     );
   }
 }
 
-export default Cart;
+const MapStateToProps = state => {
+  return {
+    products: state.products,
+    cart: state.cart
+  };
+};
+
+export default connect(
+  MapStateToProps,
+  null
+)(Cart);
