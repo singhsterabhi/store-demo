@@ -8,6 +8,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  let cart;
   switch (action.type) {
     case actionTypes.CART_OPEN:
       return {
@@ -35,10 +36,17 @@ const reducer = (state = initialState, action) => {
         products: action.products
       };
     case actionTypes.ADDTOCART:
-      const cart = { ...state.cart };
+      cart = { ...state.cart };
       if (cart.hasOwnProperty(action.product))
         cart[action.product] = cart[action.product] + 1;
       else cart[action.product] = 1;
+      return {
+        ...state,
+        cart
+      };
+    case actionTypes.REMOVEFROMCART:
+      cart = { ...state.cart };
+      delete cart[action.product];
       return {
         ...state,
         cart

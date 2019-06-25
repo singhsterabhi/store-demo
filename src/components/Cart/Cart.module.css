@@ -1,5 +1,5 @@
 .Cart {
-  background-color: black;
+  background-color: #14171d;
   color: white;
   height: 100vh;
   width: 500px;
@@ -8,6 +8,7 @@
   right: 0;
   z-index: 200;
   transition: transform 0.3s ease-out;
+  text-align: center;
 }
 
 .Open {
@@ -19,7 +20,7 @@
 }
 
 .ToggleCart {
-  background: black;
+  background: #14171d;
   outline: none;
   color: white;
   font-weight: bold;
@@ -27,4 +28,59 @@
   cursor: pointer;
   border: 0;
   margin: 10px 0 0 10px;
+  position: absolute;
+  left: 10px;
+}
+
+.CartItemsContainer {
+  overflow-y: scroll;
+  max-height: 450px;
+}
+
+.CartItem {
+  display: flex;
+  padding: 20px;
+  color: white;
+  width: 80%;
+  position: relative;
+  background: #0c0d0f;
+  margin: 10px auto;
+  box-shadow: 0px 2px 5px black;
+}
+
+.CartItem img {
+  height: 80px;
+}
+
+.CartItem button {
+  background: #0c0d0f;
+  border: 0;
+  color: wheat;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.CartItem div {
+  text-align: left;
+  margin: 0 20px;
+}
+
+.CartItem div p{
+  margin: 10px 0;
+}
+.Checkout {
+  width: 80%;
+  background: #0c0d0f;
+  color: white;
+  font-size: 20px;
+  outline: 0;
+  border: 0;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0px 2px 10px black;
+  position: absolute;
+  bottom: 30px;
+  transform: translateX(-50%);
+  /* left: 25px; */
 }
