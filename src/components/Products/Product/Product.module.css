@@ -4,6 +4,7 @@
   border: 1px solid #ddd;
   margin: 5px;
   padding: 10px;
+  cursor: pointer;
 }
 
 .Product:hover .Description button {
@@ -12,7 +13,6 @@
 
 .Product img {
   height: 300px;
-  cursor: pointer;
 }
 
 .Product hr {
@@ -31,7 +31,6 @@
   background-color: #14171d;
   color: white;
   outline: none;
-  cursor: pointer;
   border: 0px;
 }
 
