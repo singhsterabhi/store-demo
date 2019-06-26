@@ -7,3 +7,6 @@ export const CART_CLOSE = "CART_CLOSE";
 
 export const ADDTOCART = "ADDTOCART";
 export const REMOVEFROMCART = "REMOVEFROMCART";
+
+export const ADD_FILTER = "ADD_FILTER";
+export const REMOVE_FILTER = "REMOVE_FILTER";

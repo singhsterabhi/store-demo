@@ -36,6 +36,11 @@
   color: white;
 }
 
+.Selected {
+  background: #14171d !important;
+  color: #ddd !important;
+}
+
 @media (min-width: 500px) {
   .Controls {
     max-width: 200px;

@@ -59,3 +59,17 @@ export const removeFromCart = product => {
     product
   };
 };
+
+export const addFilter = filter => {
+  return {
+    type: actionTypes.ADD_FILTER,
+    filter
+  };
+};
+
+export const removeFilter = filter => {
+  return {
+    type: actionTypes.REMOVE_FILTER,
+    filter
+  };
+};
