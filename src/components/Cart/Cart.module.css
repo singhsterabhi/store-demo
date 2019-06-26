@@ -1,7 +1,7 @@
 .Cart {
   background-color: #14171d;
   color: white;
-  height: 100vh;
+  height: 100%;
   width: 500px;
   position: fixed;
   top: 0;
@@ -32,9 +32,19 @@
   left: 10px;
 }
 
+.CartFlex {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
 .CartItemsContainer {
+  flex: 1 1 auto;
   overflow-y: scroll;
-  max-height: 450px;
+}
+
+.CartItemsContainer::-webkit-scrollbar {
+  width: 0px;
 }
 
 .CartItem {
@@ -59,6 +69,7 @@
   cursor: pointer;
   position: absolute;
   right: 10px;
+  outline: none;
 }
 
 .CartItem div {
@@ -66,10 +77,15 @@
   margin: 0 20px;
 }
 
-.CartItem div p{
+.CartItem div p {
   margin: 10px 0;
 }
+
 .Checkout {
+  flex: 0 1 100px;
+}
+
+.Checkout button {
   width: 80%;
   background: #0c0d0f;
   color: white;
@@ -79,8 +95,5 @@
   height: 50px;
   cursor: pointer;
   box-shadow: 0px 2px 10px black;
-  position: absolute;
-  bottom: 30px;
-  transform: translateX(-50%);
-  /* left: 25px; */
+  margin: 30px auto;
 }

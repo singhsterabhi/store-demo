@@ -10,6 +10,8 @@ class Cart extends Component {
       classesCart.push(classes.Open);
     } else classesCart.push(classes.Close);
 
+    let totalPrice = 0;
+
     return (
       <div
         style={{ display: this.props.cartShow }}
@@ -18,34 +20,43 @@ class Cart extends Component {
         <button onClick={this.props.handleCart} className={classes.ToggleCart}>
           X
         </button>
-        <h1>Cart</h1>
-        <div className={classes.CartItemsContainer}>
-          {Object.keys(this.props.cart).length > 0 ? (
-            Object.keys(this.props.cart).map(k => (
-              <div key={k} className={classes.CartItem}>
-                <img
-                  src={require(`../../assets/images/${
-                    this.props.products[k].sku
-                  }_2.jpg`)}
-                  alt={this.props.products[k].title}
-                />
-                <div>
-                  <button onClick={() => this.props.removeFromCart(k)}>
-                    X
-                  </button>
-                  <p>{this.props.products[k].title}</p>
-                  <p>
-                    Price : {this.props.products[k].currencyFormat}{" "}
-                    {this.props.products[k].price} X {this.props.cart[k]}
-                  </p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>add some products</p>
-          )}
+        <div className={classes.CartFlex}>
+          <h1>Cart</h1>
+          <div className={classes.CartItemsContainer}>
+            {Object.keys(this.props.cart).length > 0 ? (
+              Object.keys(this.props.cart).map(k => {
+                totalPrice += this.props.products[k].price * this.props.cart[k];
+                return (
+                  <div key={k} className={classes.CartItem}>
+                    <img
+                      src={require(`../../assets/images/${
+                        this.props.products[k].sku
+                      }_2.jpg`)}
+                      alt={this.props.products[k].title}
+                    />
+                    <div>
+                      <button onClick={() => this.props.removeFromCart(k)}>
+                        X
+                      </button>
+                      <p>{this.props.products[k].title}</p>
+                      <p>
+                        Price : {this.props.products[k].currencyFormat}{" "}
+                        {this.props.products[k].price} X {this.props.cart[k]}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p>Add some products to the Cart</p>
+            )}
+          </div>
+          <div className={classes.Checkout}>
+            <button>
+              CHECKOUT {totalPrice ? `~ $ ${totalPrice.toFixed(2)}` : null}
+            </button>
+          </div>
         </div>
-        <button className={classes.Checkout}>CHECKOUT</button>
       </div>
     );
   }
